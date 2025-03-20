@@ -152,6 +152,7 @@ button.operator:hover {
 }
 
 button[value="="] {
+    /* ? TAKES UP SPACE FOR 2 BUTTONS */
     grid-column: span 2;
     background: #40c057;
     color: white;
@@ -191,13 +192,14 @@ button[value="="]:hover {
     background: #f8f9fa;
 }
 
-/* Responsive Design */
+/* ?RESPONSIVE DESIGN */
 @media (max-width: 1200px) {
     .calculator-container {
         flex-direction: column;
     }
-    
-    .history-panel, .settings-panel {
+
+    .history-panel,
+    .settings-panel {
         max-width: 100%;
         border: none;
         padding: 0;
@@ -205,7 +207,7 @@ button[value="="]:hover {
         padding-bottom: 20px;
         margin-bottom: 20px;
     }
-    
+
     .main-calculator {
         min-width: 100%;
     }
@@ -215,7 +217,7 @@ button[value="="]:hover {
     .mode-switch {
         flex-direction: column;
     }
-    
+
     button {
         padding: 10px;
         font-size: 16px;

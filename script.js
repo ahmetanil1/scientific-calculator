@@ -5,7 +5,7 @@ const operatorDisplay = document.getElementById('operator-display');
 const historyList = document.getElementById('history-list');
 const decimalPlaces = document.getElementById('decimal-places');
 
-// Initialize variables
+//? INITIALIZE VARIABLES
 let currentInput = '';
 let previousInput = '';
 let operation = null;
@@ -13,7 +13,6 @@ let shouldResetDisplay = false;
 let waitingForSecondNumber = false;
 let history = [];
 
-// Constants
 const MAX_HISTORY = 10;
 const operatorSymbols = {
     '+': '+',
@@ -33,7 +32,7 @@ const operatorSymbols = {
     'fact': '!'
 };
 
-// Mode switching
+//? MODE SWITCHING BETWEEN SCIENTIFIC AND NORMAL
 document.querySelectorAll('.mode-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
@@ -45,13 +44,13 @@ document.querySelectorAll('.mode-btn').forEach(btn => {
     });
 });
 
-// Add click event listener for all buttons
+//? ADD FUNCTIONALITY TO ALL BUTTONS
 document.querySelector('.buttons-container').addEventListener('click', (e) => {
     const value = e.target.value;
     handleInput(value);
 });
 
-// Add keyboard support
+//? ADD KEYBOARD SUPPORT
 document.addEventListener('keydown', (e) => {
     e.preventDefault();
     if (/^[0-9.]$/.test(e.key)) {
@@ -71,7 +70,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Handle all inputs (both keyboard and click)
+//? HANDLE ALL INPUTS (BOTH KEYBOARD AND CLICK)
 function handleInput(value) {
     if (!isNaN(value) || value === '.') {
         handleNumber(value);
@@ -84,7 +83,7 @@ function handleInput(value) {
     updateDisplay();
 }
 
-// Handle number inputs
+//? HANDLE NUMBER INPUTS
 function handleNumber(num) {
     if (shouldResetDisplay) {
         currentInput = '';
@@ -97,7 +96,7 @@ function handleNumber(num) {
 //! HANDLE SPECİFİC AND ONLY ONE OPERATION
 function handleScientific(op) {
     const current = parseFloat(currentInput);
-    if (isNaN(current) && !['pi', 'e'].includes(op)) return;
+    if (isNaN(current) && !['pi', 'e'].includes(op)) return; //? IF THE CURRENT INPUT IS NOT A NUMBER AND THE OPERATION IS NOT PI OR E(BCS Pİ AND E İS ALSO NUMBER), RETURN
     let result;
     switch (op) {
         case 'sin':
@@ -152,7 +151,7 @@ function handleScientific(op) {
     }
 }
 
-// Handle operator inputs
+//? HANDLE OPERATOR INPUTS
 function handleOperator(op) {
     switch (op) {
         case 'clear':
@@ -160,6 +159,8 @@ function handleOperator(op) {
             previousInput = '';
             operation = null;
             operatorDisplay.textContent = '';
+            //! TEXTCONTENT JUST RETURNS THE TEXT OF THE ELEMENT  =>  HELLOWORLD
+            //? INNERHTML RETURNS THE RETURNS THE TEXT ALSO HTML TAGS   => <P>HELLOWORLD</P>
             expressionDisplay.textContent = '';
             waitingForSecondNumber = false;
             break;
@@ -203,7 +204,7 @@ function handleOperator(op) {
     }
 }
 
-//! PERFORM MATHEMATICAL CALCULATIONS
+//! PERFORM MATHEMATICAL CALCULATIONS WITH TWO INPUTS
 function calculate() {
     const prev = parseFloat(previousInput);
     const current = parseFloat(currentInput);
@@ -237,18 +238,18 @@ function calculate() {
     return formatNumber(result);
 }
 
-// Update display
+//! UPDATING THE DISPLAY TO THE CURRENT INPUT OR 0 IF NOTHING
 function updateDisplay() {
     display.value = currentInput || '0';
 }
 
-// Format number based on decimal places setting
+//! FORMATNG THE NUMBER TO THE DECIMAL PLACES
 function formatNumber(num) {
     const places = parseInt(decimalPlaces.value);
     return Number(num).toFixed(places);
 }
 
-// Add calculation to history
+//! ADD TO HISTORY
 function addToHistory(expression) {
     history.unshift(expression);
     if (history.length > MAX_HISTORY) {
@@ -257,18 +258,17 @@ function addToHistory(expression) {
     updateHistoryDisplay();
 }
 
-// Update history display
+//! UPDATING PREVIOUS OPERATIONS IN HISTORY
 function updateHistoryDisplay() {
     historyList.innerHTML = history.map(item => `<div class="history-item">${item}</div>`).join('');
 }
 
-// Clear history
+//! CLEAR HISTORY
 document.getElementById('clear-history').addEventListener('click', () => {
     history = [];
     updateHistoryDisplay();
 });
 
-// Helper function for factorial
 function factorial(n) {
     if (n < 0) return NaN;
     if (n === 0) return 1;
