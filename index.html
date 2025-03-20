@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="calculator-container">
+        <!-- Left Side - History -->
+        <div class="history-panel">
+            <div class="history-header">
+                <h3>History</h3>
+                <button id="clear-history">Clear</button>
+            </div>
+            <div class="history-content" id="history-list">
+                <!-- History items will be added here -->
+            </div>
+        </div>
+
+        <!-- Center - Main Calculator -->
+        <div class="main-calculator">
+            <div class="mode-switch">
+                <!-- WE CAN CHOOSE ONLY ONE MODE AT THE SAME TIME -- DATA-MODE IS THE MODE THAT WE CHOOSE -->
+                <button class="mode-btn active" data-mode="standard">Standard</button>
+                <button class="mode-btn" data-mode="scientific">Scientific</button>
+            </div>
+
+            <div class="display-container">
+                <div class="expression-display" id="expression-display"></div>
+                <!-- READONLY MEANS THAT THE INPUT IS NOT EDITABLE -->
+                <input type="text" id="display" readonly>
+                <span id="operator-display"></span>
+            </div>
+
+            <div class="buttons-container">
+                <!-- Scientific Calculator Buttons -->
+                <div class="scientific-buttons" style="display: none;">
+                    <button class="operator" value="sin">sin</button>
+                    <button class="operator" value="cos">cos</button>
+                    <button class="operator" value="tan">tan</button>
+                    <button class="operator" value="sqrt">√</button>
+
+                    <button class="operator" value="pow2">x²</button>
+                    <button class="operator" value="pow3">x³</button>
+                    <button class="operator" value="powy">xʸ</button>
+                    <button class="operator" value="log">log</button>
+
+                    <button class="operator" value="ln">ln</button>
+                    <button class="operator" value="fact">n!</button>
+                    <button class="operator" value="pi">π</button>
+                    <button class="operator" value="e">e</button>
+                </div>
+
+                <!-- Standard Calculator Buttons -->
+                <div class="standard-buttons">
+                    <button class="operator memory" value="mc">MC</button>
+                    <button class="operator memory" value="mr">MR</button>
+                    <button class="operator memory" value="m+">M+</button>
+                    <button class="operator memory" value="m-">M-</button>
+
+                    <button class="operator" value="clear">C</button>
+                    <button class="operator" value="backspace">⌫</button>
+                    <button class="operator" value="%">%</button>
+                    <button class="operator" value="/">/</button>
+
+                    <button value="7">7</button>
+                    <button value="8">8</button>
+                    <button value="9">9</button>
+                    <button class="operator" value="*">×</button>
+
+                    <button value="4">4</button>
+                    <button value="5">5</button>
+                    <button value="6">6</button>
+                    <button class="operator" value="-">-</button>
+
+                    <button value="1">1</button>
+                    <button value="2">2</button>
+                    <button value="3">3</button>
+                    <button class="operator" value="+">+</button>
+
+                    <button value="0">0</button>
+                    <button value=".">.</button>
+                    <button class="operator" value="=">=</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Memory and Settings -->
+        <div class="memory-panel">
+            <div class="memory-header">
+                <h3>Memory</h3>
+                <button id="clear-memory">Clear</button>
+            </div>
+            <div class="memory-content" id="memory-list">
+                <!-- Memory values will be added here -->
+            </div>
+            <div class="settings">
+                <h3>Settings</h3>
+                <div class="setting-item">
+                    <label>Decimal Places:</label>
+                    <select id="decimal-places">
+                        <option value="0">0</option>
+                        <option value="2" selected>2</option>
+                        <option value="4">4</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                <div class="setting-item">
+                    <label>Angle Unit:</label>
+                    <select id="angle-unit">
+                        <option value="deg" selected>Degrees</option>
+                        <option value="rad">Radians</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
