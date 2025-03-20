@@ -19,6 +19,20 @@
             <div class="history-content" id="history-list">
                 <!-- History items will be added here -->
             </div>
+            <div class="settings-panel">
+                <div class="settings">
+                    <h3>Settings</h3>
+                    <div class="setting-item">
+                        <label>Decimal Places:</label>
+                        <select id="decimal-places">
+                            <option value="0" selected>0</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Center - Main Calculator -->
@@ -57,11 +71,6 @@
 
                 <!-- Standard Calculator Buttons -->
                 <div class="standard-buttons">
-                    <button class="operator memory" value="mc">MC</button>
-                    <button class="operator memory" value="mr">MR</button>
-                    <button class="operator memory" value="m+">M+</button>
-                    <button class="operator memory" value="m-">M-</button>
-
                     <button class="operator" value="clear">C</button>
                     <button class="operator" value="backspace">⌫</button>
                     <button class="operator" value="%">%</button>
@@ -89,35 +98,8 @@
             </div>
         </div>
 
-        <!-- Right Side - Memory and Settings -->
-        <div class="memory-panel">
-            <div class="memory-header">
-                <h3>Memory</h3>
-                <button id="clear-memory">Clear</button>
-            </div>
-            <div class="memory-content" id="memory-list">
-                <!-- Memory values will be added here -->
-            </div>
-            <div class="settings">
-                <h3>Settings</h3>
-                <div class="setting-item">
-                    <label>Decimal Places:</label>
-                    <select id="decimal-places">
-                        <option value="0">0</option>
-                        <option value="2" selected>2</option>
-                        <option value="4">4</option>
-                        <option value="8">8</option>
-                    </select>
-                </div>
-                <div class="setting-item">
-                    <label>Angle Unit:</label>
-                    <select id="angle-unit">
-                        <option value="deg" selected>Degrees</option>
-                        <option value="rad">Radians</option>
-                    </select>
-                </div>
-            </div>
-        </div>
+        <!-- Right Side - Settings -->
+
     </div>
     <script src="script.js"></script>
 </body>
