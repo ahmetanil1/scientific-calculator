@@ -10,14 +10,12 @@
 
 <body>
     <div class="calculator-container">
-        <!-- Left Side - History -->
         <div class="history-panel">
             <div class="history-header">
                 <h3>History</h3>
                 <button id="clear-history">Clear</button>
             </div>
             <div class="history-content" id="history-list">
-                <!-- History items will be added here -->
             </div>
             <div class="settings-panel">
                 <div class="settings">
@@ -35,23 +33,19 @@
             </div>
         </div>
 
-        <!-- Center - Main Calculator -->
         <div class="main-calculator">
             <div class="mode-switch">
-                <!-- WE CAN CHOOSE ONLY ONE MODE AT THE SAME TIME -- DATA-MODE IS THE MODE THAT WE CHOOSE -->
                 <button class="mode-btn active" data-mode="standard">Standard</button>
                 <button class="mode-btn" data-mode="scientific">Scientific</button>
             </div>
 
             <div class="display-container">
                 <div class="expression-display" id="expression-display"></div>
-                <!-- READONLY MEANS THAT THE INPUT IS NOT EDITABLE -->
                 <input type="text" id="display" readonly>
                 <span id="operator-display"></span>
             </div>
 
             <div class="buttons-container">
-                <!-- Scientific Calculator Buttons -->
                 <div class="scientific-buttons" style="display: none;">
                     <button class="operator" value="sin">sin</button>
                     <button class="operator" value="cos">cos</button>
@@ -69,7 +63,6 @@
                     <button class="operator" value="e">e</button>
                 </div>
 
-                <!-- Standard Calculator Buttons -->
                 <div class="standard-buttons">
                     <button class="operator" value="clear">C</button>
                     <button class="operator" value="backspace">⌫</button>
